@@ -1,7 +1,7 @@
 import numpy as np
-X = np.array([[1, 0],
-              [1,1 ],
-              [0, 1],
+X = np.array([[0, 0],
+              [1,0 ],
+              [1,1],
               ])
 #prints row of array
 
@@ -11,9 +11,12 @@ X = np.array([[1, 0],
 
 #print(X.shape[1])
 
-Y = np.array([[1],
+
+
+Y = np.array([[0],
+              [1],
               [0],
-              [1]])
+              ])
 
 
 def sigmoid(x):
@@ -83,5 +86,28 @@ for i in range(10000):
     weightOfHiddenlayer += X.T.dot(effectOnHiddenLayer) * learnRate
     biasOfHiddenlayer += np.sum(effectOnHiddenLayer, axis=0, keepdims=True) * learnRate
 
+
+print(output)
+
+print("-------")
+
+
+#predict for new result
+#just forward propagate korlei pawar kotha kintu hoy na
+
+
+newInput=np.array([0,1])
+
+hiddenLayerTempInput = np.dot(newInput, weightOfHiddenlayer)
+
+hiddenLayerInput = hiddenLayerTempInput + biasOfHiddenlayer
+
+hiddenLayerActivationInputs = sigmoid(hiddenLayerInput)
+
+outputLayerTempInput = np.dot(hiddenLayerActivationInputs, weightOfOutputlayer)
+
+outputLayerInput = outputLayerTempInput + biasOfOutputlayer
+
+output = sigmoid(outputLayerInput)
 
 print(output)

@@ -1,5 +1,5 @@
 import numpy as np
-data=np.genfromtxt("wine.txt",delimiter=",",dtype=float)
+data=np.genfromtxt("Training Dataset Wine.txt",delimiter=",",dtype=float)
 
 np.set_printoptions(precision=3,suppress=True,threshold=np.nan,linewidth=150)
 
@@ -141,7 +141,7 @@ print(output)
 
 
 
-testData=np.genfromtxt("w2.txt",delimiter=",",dtype=float)
+testData=np.genfromtxt("Testing Dataset Wine.txt",delimiter=",",dtype=float)
 x2=testData[:,1:]
 #print(x2)
 for i in range(x2.shape[0]):

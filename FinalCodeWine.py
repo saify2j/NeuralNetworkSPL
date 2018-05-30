@@ -137,31 +137,45 @@ for i in range(10000):
 print(output)
 
 
-# #TESTING DATA
-#
-#
-#
-# testData=np.genfromtxt("w2.txt",delimiter=",",dtype=float)
-# x2=testData[:,1:]
-# print(x2)
-# for i in range(x2.shape[0]):
-#     for j in range (x2.shape[1]):
-#         while(x2[i][j]>=1):
-#
-#             x2[i][j]/=10
-#
-#
-#
-# hiddenLayerTempInput = np.dot(x2, weightOfHiddenlayer)
-# hiddenLayerInput = hiddenLayerTempInput + biasOfHiddenlayer
-#
-# hiddenLayerActivationInputs = sigmoid(hiddenLayerInput)
-#
-# outputLayerTempInput = np.dot(hiddenLayerActivationInputs, weightOfOutputlayer)
-#
-# outputLayerInput = outputLayerTempInput + biasOfOutputlayer
-#
-# output = sigmoid(outputLayerInput)
-#
-#
-# print(output)
+#TESTING DATA
+
+
+
+testData=np.genfromtxt("w2.txt",delimiter=",",dtype=float)
+x2=testData[:,1:]
+#print(x2)
+for i in range(x2.shape[0]):
+    for j in range (x2.shape[1]):
+        while(x2[i][j]>=1):
+
+            x2[i][j]/=10
+
+
+
+hiddenLayerTempInput = np.dot(x2, weightOfHiddenlayer)
+hiddenLayerInput = hiddenLayerTempInput + biasOfHiddenlayer
+
+hiddenLayerActivationInputs = sigmoid(hiddenLayerInput)
+
+outputLayerTempInput = np.dot(hiddenLayerActivationInputs, weightOfOutputlayer)
+
+outputLayerInput = outputLayerTempInput + biasOfOutputlayer
+
+output = sigmoid(outputLayerInput)
+
+#print(output)
+length=output.shape[0]
+classA=classB=classC=0
+for i in range(length):
+    if (output[i][0] > 0.5):
+        classA = classA + 1
+    elif (output[i][1] > 0.5):
+        classB = classB + 1
+    else:
+        classC = classC + 1
+
+print(str(classA)+"  "+str(classB)+"  "+str(classC))
+
+
+
+
